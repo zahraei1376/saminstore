@@ -5,7 +5,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 // import MySpinner from '../MySpinner/MySpinner.component';
 // //////////////////////////////////////
 // import MyNavbar from '../Menu/Navbar.component';
-const HomePage = lazy(() => import('./pages/home'));
+const HomePage = lazy(() => import('./pages/home/home.component'));
 // const RegisterPage = lazy(() =>
 //   import('../Register-Login/register/register.component')
 // );
@@ -20,9 +20,9 @@ const HomePage = lazy(() => import('./pages/home'));
 const Layout = () => (
   <div>
     {/* <MyNavbar /> */}
-    <Router>
+    {/* <Router> */}
       <Switch>
-        {/* <Suspense fallback={<MySpinner />}> */}
+        <Suspense fallback={<h1>gggggg</h1>}>
           <Route exact path="/" component={HomePage} />
           {/* <Route exact path="/register" component={RegisterPage} />
           <Route
@@ -37,9 +37,9 @@ const Layout = () => (
           /> */}
           {/* <Redirect to="/404" /> */}
           {/* <Route component={GenericNotFound} /> */}
-        {/* </Suspense> */}
+        </Suspense>
       </Switch>
-    </Router>
+    {/* </Router> */}
   </div>
 );
 export default Layout;
