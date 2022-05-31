@@ -1,25 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { lazy, Suspense } from 'react';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+// //////////////////////////////////////
+// import MySpinner from '../MySpinner/MySpinner.component';
+// //////////////////////////////////////
+// import MyNavbar from '../Menu/Navbar.component';
+const HomePage = lazy(() => import('./pages/home'));
+// const RegisterPage = lazy(() =>
+//   import('../Register-Login/register/register.component')
+// );
+// const GenericNotFound = lazy(() => import('../notFound/notFound.component'));
+// const ManagerCateroryWeblog = lazy(() =>
+//   import('../../pages/managerCategoryWeblog/managerCategoryWeblog.component')
+// );
+// const ManagerTextWeblog = lazy(() =>
+//   import('../../pages/managerTextWeblog/managerTextWeblog.component')
+// );
+// /////////////////////////////////////////////////////
+const Layout = () => (
+  <div>
+    {/* <MyNavbar /> */}
+    <Router>
+      <Switch>
+        {/* <Suspense fallback={<MySpinner />}> */}
+          <Route exact path="/" component={HomePage} />
+          {/* <Route exact path="/register" component={RegisterPage} />
+          <Route
+            exact
+            path="/managerCateroryWeblog"
+            component={ManagerCateroryWeblog}
+          />
+          <Route
+            exact
+            path="/managerTextWeblog"
+            component={ManagerTextWeblog}
+          /> */}
+          {/* <Redirect to="/404" /> */}
+          {/* <Route component={GenericNotFound} /> */}
+        {/* </Suspense> */}
+      </Switch>
+    </Router>
+  </div>
+);
+export default Layout;
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
