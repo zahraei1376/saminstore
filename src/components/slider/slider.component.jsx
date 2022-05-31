@@ -1,9 +1,12 @@
 import * as React from 'react';
-import { Container } from "./slider.styles";
+import { Container, HeadingContainer, HeadingSubTitle, HeadingTitle } from "./slider.styles";
 
 const Slider = () =>(
     <Container>
-
+        <HeadingContainer>
+            <HeadingTitle>Samin Online Store</HeadingTitle>
+            <HeadingSubTitle>Experience diversity with us</HeadingSubTitle>
+        </HeadingContainer>
     </Container>
 );
 
