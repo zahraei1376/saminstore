@@ -7,9 +7,10 @@ export const Container = styled.div`
   background-image: url(${back});
   background-repeat: no-repeat;
   background-size: cover;
+  padding:2rem 5rem;
   display:flex; 
-  justify-content:center;
-  align-items:center;
+  justify-content:end;
+  // align-items:center;
   position:relative;
 `;
 

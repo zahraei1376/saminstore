@@ -4,43 +4,18 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 // //////////////////////////////////////
 // import MySpinner from '../MySpinner/MySpinner.component';
 // //////////////////////////////////////
-// import MyNavbar from '../Menu/Navbar.component';
 const HomePage = lazy(() => import('./pages/home/home.component'));
-// const RegisterPage = lazy(() =>
-//   import('../Register-Login/register/register.component')
-// );
-// const GenericNotFound = lazy(() => import('../notFound/notFound.component'));
-// const ManagerCateroryWeblog = lazy(() =>
-//   import('../../pages/managerCategoryWeblog/managerCategoryWeblog.component')
-// );
-// const ManagerTextWeblog = lazy(() =>
-//   import('../../pages/managerTextWeblog/managerTextWeblog.component')
-// );
+const ShowProduct = lazy(() => import('./pages/showProduct/showProduct.component'));
+const NotFoundPage = lazy(() => import('./pages/notFound/notFound.component'));
 // /////////////////////////////////////////////////////
 const Layout = () => (
-  <div>
-    {/* <MyNavbar /> */}
-    {/* <Router> */}
       <Switch>
         <Suspense fallback={<h1>gggggg</h1>}>
           <Route exact path="/" component={HomePage} />
-          {/* <Route exact path="/register" component={RegisterPage} />
-          <Route
-            exact
-            path="/managerCateroryWeblog"
-            component={ManagerCateroryWeblog}
-          />
-          <Route
-            exact
-            path="/managerTextWeblog"
-            component={ManagerTextWeblog}
-          /> */}
-          {/* <Redirect to="/404" /> */}
-          {/* <Route component={GenericNotFound} /> */}
+          <Route exact path="/showProduct/:id" component={ShowProduct} />
+          {/* <Route path="*" component={NotFoundPage} /> */}
         </Suspense>
       </Switch>
-    {/* </Router> */}
-  </div>
 );
 export default Layout;
 

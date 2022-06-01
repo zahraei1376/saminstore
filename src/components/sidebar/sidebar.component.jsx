@@ -7,7 +7,6 @@ import {
   Span,
 } from "./sidebar.styles";
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const SideBarStore = () => {
   return (
     <Sidebar>
@@ -44,7 +43,6 @@ const SideBarStore = () => {
 
         <SideNavItem>
           <SideNavLink href="#">
-            <FontAwesomeIcon icon={"faHome"} className="mr-2" />
             <i
               className="fa fa-female"
               style={{ fontSize: "2rem", marginRight: "1rem" }}
