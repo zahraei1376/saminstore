@@ -69,14 +69,15 @@ export const ShowPrice = styled.p`
 
 export const ShowDecription = styled.p`
   width: 100%;
-  height: 6rem;
-  object-fit: cover;
+  // height: 6rem;
+  // object-fit: cover;
   font-size: 2rem;
   display: flex;
   align-items: center;
   flex-direction: column;
   color: black;
   margin-top: 1rem;
+  line-height: 4rem;
 `;
 
 export const Button = styled.button`

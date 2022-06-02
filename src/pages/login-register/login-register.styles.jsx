@@ -107,12 +107,28 @@ export const LoginForm = styled.form`
 
 export const FormGroup = styled.div`
   width: 100%;
-  margin-bottom: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
   border: 1px solid #fff;
+`;
+
+export const ContainerGroup = styled.div`
+  width: 100%;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+  align-items: center;
+  // border-radius: 5px;
+  // border: 1px solid #fff;
+`;
+
+export const ErrorTag = styled.p`
+  color: #930B0B;
+  font-size: 2rem;
+  margin: 0;
 `;
 
 export const FormGroupBtn = styled.div`
@@ -141,10 +157,11 @@ export const FormInput = styled.input`
   border-radius: 2px;
   background-color: rgba(256, 256, 256, 0.9);
   border: none;
-  border-bottom: 3px solid transparent;
   width: 90%;
   display: block;
   transition: all 0.3s;
+  border-bottom: ${(props) =>
+    props.err ? "3px solid #930B0B" : "3px solid transparent"};
 
   @media only screen and (max-width: 56.25em) {
     width: 100%;
@@ -153,12 +170,12 @@ export const FormInput = styled.input`
   &:focus {
     outline: none;
     box-shadow: 0 1rem 2rem rgba(#000, 0.1);
-    border-bottom: 3px solid #55c57a;
+    // border-bottom: 3px solid #55c57a;
   }
 
-  &:focus:invalid {
-    border-bottom: 3px solid #ff7730;
-  }
+  // &:focus:invalid {
+  //   border-bottom: 3px solid #ff7730;
+  // }
 
   &::-webkit-input-placeholder {
     color: #999;

@@ -36,6 +36,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Mountogen';
   /* font-family: Bnazanin'; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -59,7 +60,10 @@ body {
   left: -5rem !important;
 }
 
-
+@font-face {
+  font-family: 'Mountogen';
+  src: url('./assets/fonts/LouisGeorgeCafeBold.ttf');
+}
 
 /* @font-face {
   font-family: 'ir_sans';

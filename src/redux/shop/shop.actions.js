@@ -1,6 +1,5 @@
 import shopActionTypes from "./shop.types";
 import axios from "axios";
-import {useErrorHandler} from '../../functions/functions';
 
 export const fetchCollectionsStart = () => ({
   type: shopActionTypes.FETCH_COLLECTION_START,
@@ -18,8 +17,6 @@ export const fectchCollectionsFailure = (errorMessage) => ({
 
 export const fetchCollectionsStartAsync = (url) => {
   return (dispatch) => {
-    // const loading = useErrorHandler();
-    // const callApi = (err) => ax.get(err ? 'https://asdf' : 'https://www.boredapi.com/api/activity')
     dispatch(fetchCollectionsStart());
     axios
       .get(url , {

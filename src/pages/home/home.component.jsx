@@ -6,7 +6,8 @@ import SearchBox from "../../components/searchBox/searchBox.component";
 import ShowProducts from "../../components/showProducts/showProducts.component";
 import SideBarStore from "../../components/sidebar/sidebar.component";
 import Slider from "../../components/slider/slider.component";
-import MySpinner from "../../components/spinner/spinner.componenr";
+import MySpinner from "../../components/spinner/spinner.component";
+import { RemoveAll } from "../../redux/cart/cart.action";
 import { fetchCollectionsStartAsync } from "../../redux/shop/shop.actions";
 import {
   selectCollections,
@@ -15,12 +16,15 @@ import {
 } from "../../redux/shop/shop.selector";
 import { ContainerProducts, ContainerSearchBox, ContainerTitle, ShopContainer, SidebarContainer, Title } from "./home.styles";
 
-const Home = ({ fetchCollectionsStartAsync, data, loading, error }) => {
+const Home = ({ fetchCollectionsStartAsync, data, loading, error,RemoveAll }) => {
   const [allProduct, setAllProduct] = useState([]);
   const [items, setItems] = useState([]);
   const [count, setCount] = useState(0);
   const [current, setCurrent] = useState(0);
   const [searchItem, setSearchItem] = useState("");
+  useEffect(()=>{
+    RemoveAll();
+  },[])
 
   useEffect(() => {
     setAllProduct(data);
@@ -109,6 +113,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCollectionsStartAsync: (url) => dispatch(fetchCollectionsStartAsync(url)),
+  RemoveAll:() =>dispatch(RemoveAll()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
