@@ -1,8 +1,8 @@
 import { Button } from "./customeButton.styles";
 import React from 'react';
-const CustomeButton = ({text}) =>{
+const CustomeButton = ({text , url}) =>{
     return(
-        <Button>
+        <Button href={url}>
             {text}
         </Button>
     )

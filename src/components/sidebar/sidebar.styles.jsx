@@ -1,12 +1,4 @@
-import styled, { css } from "styled-components";
-
-export const Content = styled.div`
-  display: flex;
-
-  @media only screen and (max-width: 68.75em) {
-    flex-direction: column;
-  }
-`;
+import styled from "styled-components";
 
 export const Sidebar = styled.nav`
   background-color: #333;
@@ -39,9 +31,9 @@ export const Span = styled.span`
   }
 `;
 
-export const SideNavLink = styled.a`
-  &:link,
-  &:visited {
+export const SideNavLink = styled.div`
+  // &:link,
+  // &:visited {
     color: #faf9f9;
     text-decoration: none;
     text-transform: uppercase;
@@ -49,9 +41,10 @@ export const SideNavLink = styled.a`
     padding: 1.5rem 3rem;
     position: relative;
     z-index: 10;
-
+    cursor:pointer;
     display: flex;
     align-items: center;
+    background-color:${props => props.active ? "#e67e22":"transparent"};
 
     @media only screen and (max-width: 68.75em) {
       justify-content: center;
@@ -62,7 +55,7 @@ export const SideNavLink = styled.a`
       flex-direction: column;
       padding: 1.5rem 0.5rem;
     }
-  }
+  // }
 `;
 
 export const SideNavItem = styled.li`

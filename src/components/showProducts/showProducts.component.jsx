@@ -1,15 +1,27 @@
 import React from "react";
 import BoxStore from "../box/box.component";
 import PaginationStore from "../pagination/pagination.component";
+import SearchBox from "../searchBox/searchBox.component";
 import {
   Container,
   ContainerBoxes,
   ContainerPagination,
+  ContainerSearchBox,
 } from "./showProducts.styles";
 
-const ShowProducts = ({ items, count, current, onPageClick }) => {
+const ShowProducts = ({
+  setSearchItem,
+  searchItem,
+  items,
+  count,
+  current,
+  onPageClick,
+}) => {
   return (
     <Container>
+      {/* <ContainerSearchBox>
+        <SearchBox setSearchItem={setSearchItem} searchItem={searchItem} />
+      </ContainerSearchBox> */}
       <ContainerBoxes>
         {items &&
           items.length > 0 &&

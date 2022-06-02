@@ -26,11 +26,11 @@ ReactDOM.render(
   // <ApolloProvider client={client}>
     <Provider store={store}>
       <React.StrictMode>
-        <BrowserRouter>
+        {/* <BrowserRouter> */}
           <PersistGate persistor={persistor} >
             <App />
           </PersistGate>
-        </BrowserRouter>
+        {/* </BrowserRouter> */}
       </React.StrictMode>
     </Provider>,
   // </ApolloProvider>,

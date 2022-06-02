@@ -10,10 +10,10 @@ import {connect} from 'react-redux';
 import CardIcon from '../card-icon/cardIcon.component';
 const Slider = ({currentUser}) => (
   <Container>
-    {!currentUser ? (
+    {currentUser ? (
       <CardIcon/>
     ) : (
-        <CustomeButton text="login" />
+        <CustomeButton text="login" url="/login"/>
     )}
     <HeadingContainer>
       <HeadingTitle>Samin Online Store</HeadingTitle>
