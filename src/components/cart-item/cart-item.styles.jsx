@@ -9,6 +9,7 @@ export const CardItemContainer = styled.div`
 
 export const CarItemImg = styled.img`
   width: 34%;
+  object-fit: cover;
 `;
 
 export const CarItemDetails = styled.div`
@@ -22,6 +23,10 @@ export const CarItemDetails = styled.div`
 `;
 
 export const CarItemDetailsName = styled.span`
-  margin-bottom: 1rem;
+font-size: 1.8rem;
+  margin-bottom: 5px;
+  font-weight:900;
 `;
-export const CarItemDetailsPrice = styled.span``;
+export const CarItemDetailsPrice = styled.span`
+font-size: 1.5rem;
+`;

@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const CardContainer = styled.div`
   position: absolute;
-  top: 5rem;
+  top: 6rem;
   right: 6rem;
   padding: 2rem;
-  width: 26rem;
+  width: 32rem;
   height: 34rem;
   border: 1px solid #777;
   background-color: #eee;

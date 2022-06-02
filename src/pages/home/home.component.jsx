@@ -16,15 +16,15 @@ import {
 } from "../../redux/shop/shop.selector";
 import { ContainerProducts, ContainerSearchBox, ContainerTitle, ShopContainer, SidebarContainer, Title } from "./home.styles";
 
-const Home = ({ fetchCollectionsStartAsync, data, loading, error,RemoveAll }) => {
+const Home = ({ fetchCollectionsStartAsync, data, loading, error }) => {
   const [allProduct, setAllProduct] = useState([]);
   const [items, setItems] = useState([]);
   const [count, setCount] = useState(0);
   const [current, setCurrent] = useState(0);
   const [searchItem, setSearchItem] = useState("");
-  useEffect(()=>{
-    RemoveAll();
-  },[])
+  // useEffect(()=>{
+  //   RemoveAll();
+  // },[])
 
   useEffect(() => {
     setAllProduct(data);
@@ -114,6 +114,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   fetchCollectionsStartAsync: (url) => dispatch(fetchCollectionsStartAsync(url)),
   RemoveAll:() =>dispatch(RemoveAll()),
+  // addItem: item => dispatch(addItem(item))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

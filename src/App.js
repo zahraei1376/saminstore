@@ -12,6 +12,9 @@ const NotFoundPage = lazy(() => import("./pages/notFound/notFound.component"));
 const LoginRegisterPage = lazy(() =>
   import("./pages/login-register/login-register.component")
 );
+const CheckOutPage = lazy(() =>
+  import("./pages/checkout/checkout.component")
+);
 // /////////////////////////////////////////////////////
 const Layout = () => (
   <Router>
@@ -19,6 +22,7 @@ const Layout = () => (
       <Suspense fallback={<MySpinner />}>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/showProduct/:id" component={ShowProduct} />
+        <Route exact path="/checkout" component={CheckOutPage} />
         <Route exact path="/register">
           <LoginRegisterPage
             type="register"
