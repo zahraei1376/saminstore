@@ -20,7 +20,7 @@ const Cart = ({ CartItems, history, dispatch }) => (
     <Button
       onClick={() => {
         history.push("/checkout");
-        dispatch(ToggleCardHidden());
+        // dispatch(ToggleCardHidden());
       }}
     >
       GO TO CHECKOUT

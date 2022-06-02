@@ -63,7 +63,7 @@ const SideBarStore = ({searchItem,setSearchItem}) => {
               className="fa fa-female"
               style={{ fontSize: "2rem", marginRight: "1rem" }}
             ></i>
-            <Span>women's clothing</Span>
+            <Span>women's cloth</Span>
           </SideNavLink>
         </SideNavItem>
       </SideNav>

@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const CardContainer = styled.div`
   position: absolute;
-  top: 3rem;
-  right: 1rem;
+  top: 5rem;
+  right: 6rem;
   padding: 2rem;
-  width: 16rem;
-  height: 24rem;
+  width: 26rem;
+  height: 34rem;
   border: 1px solid #777;
   background-color: #eee;
   display: flex;
@@ -16,14 +16,14 @@ export const CardContainer = styled.div`
 `;
 
 export const CartItemsContainer = styled.div`
-  height: 14rem;
+  height: 24rem;
   display: flex;
   flex-direction: column;
   overflow: scroll;
 `;
 
 export const Span = styled.span`
-  font-size: 1.4rem;
+  font-size: 2rem;
   margin: 5rem auto;
 `;
 
