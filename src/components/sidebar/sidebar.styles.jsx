@@ -6,8 +6,6 @@ export const Sidebar = styled.nav`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  //   flex: 0 0 18%;
-  //   flex: 0 0 18%;
   @media only screen and (max-width: 68.75em) {
     height: auto;
   }
@@ -27,35 +25,32 @@ export const SideNav = styled.ul`
 
 export const Span = styled.span`
   @media only screen and (max-width: 68.75em) {
-    margin-top:1rem;
+    margin-top: 1rem;
   }
 `;
 
 export const SideNavLink = styled.div`
-  // &:link,
-  // &:visited {
-    color: #faf9f9;
-    text-decoration: none;
-    text-transform: uppercase;
-    display: block;
-    padding: 1.5rem 3rem;
-    position: relative;
-    z-index: 10;
-    cursor:pointer;
-    display: flex;
-    align-items: center;
-    background-color:${props => props.active ? "#e67e22":"transparent"};
+  color: #faf9f9;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  padding: 1.5rem 3rem;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: ${(props) => (props.active ? "#e67e22" : "transparent")};
 
-    @media only screen and (max-width: 68.75em) {
-      justify-content: center;
-      padding: 2rem;
-    }
+  @media only screen and (max-width: 68.75em) {
+    justify-content: center;
+    padding: 2rem;
+  }
 
-    @media only screen and (max-width: 37.5em) {
-      flex-direction: column;
-      padding: 1.5rem 0.5rem;
-    }
-  // }
+  @media only screen and (max-width: 37.5em) {
+    flex-direction: column;
+    padding: 1.5rem 0.5rem;
+  }
 `;
 
 export const SideNavItem = styled.li`

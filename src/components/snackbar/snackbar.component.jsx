@@ -8,7 +8,6 @@ import {
   selectSnackBarType,
 } from "../../redux/snackBar/snackBar.selector";
 import { Container, Span } from "./snackbar.styles";
-// import Styles from "./snackbar.module.css";
 
 const SimpleSnackbar = ({
   toggleSnackBarClose,
@@ -17,7 +16,6 @@ const SimpleSnackbar = ({
   selectSnackBarType,
 }) => {
   useEffect(() => {
-    console.log('ffffffffffffff');
     setTimeout(() => {
       toggleSnackBarClose();
     }, 4000);
@@ -32,11 +30,6 @@ const SimpleSnackbar = ({
     </Container>
   );
 };
-
-// const mapStateToProps = (state) => ({
-//   showSnackBar: selectShowSnack(state),
-//   messageSnackBar: selectSnackBarMessage(state),
-// });
 
 const mapStateToProps = createStructuredSelector({
   showSnackBar: selectShowSnack,

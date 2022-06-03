@@ -20,21 +20,12 @@ import {
 import { selectShowSnack } from "../../redux/snackBar/snackBar.selector";
 import SimpleSnackbar from "../snackbar/snackbar.component";
 import { createStructuredSelector } from "reselect";
-const BoxStore = ({
-  item,
-  addItem,
-  showSnackBar,
-  setMessageSnackBar,
-  toggleSnackBarClose,
-  toggleSnackBarOpen,
-  key,
-}) => {
+const BoxStore = ({ item, addItem, showSnackBar, toggleSnackBarOpen, key }) => {
   let history = useHistory();
   return (
     <BoxContainer
-    key={key}
+      key={key}
       onClick={() => history.push(`/showProduct/${item.id}`)}
-      // href={`/showProduct/${item.id}`}
     >
       <BoxImg src={item.image ? item.image : defImage} />
       <BoxTitle>{limitRecipeTitle(item.title, 14)}</BoxTitle>
@@ -56,10 +47,6 @@ const BoxStore = ({
     </BoxContainer>
   );
 };
-
-// const mapDispatchToProps = (dispatch) => ({
-//   addItem: (item) => dispatch(addItem(item)),
-// });
 
 const mapStateToProps = createStructuredSelector({
   showSnackBar: selectShowSnack,

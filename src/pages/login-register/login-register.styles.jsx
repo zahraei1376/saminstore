@@ -91,16 +91,6 @@ export const LoginBox = styled.div`
   } ;
 `;
 
-export const LoginFormContainer = styled.div`
-  @media only screen and (max-width: 75em) {
-    width: 65%;
-  }
-
-  @media only screen and (max-width: 56.25em) {
-    width: 100%;
-  } ;
-`;
-
 export const LoginForm = styled.form`
   width: 100%;
   margin-bottom: 3rem;
@@ -125,10 +115,7 @@ export const ContainerGroup = styled.div`
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
   align-items: center;
-  // border-radius: 5px;
-  // border: 1px solid #fff;
 `;
 
 export const ErrorTag = styled.p`
@@ -144,17 +131,6 @@ export const FormGroupBtn = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-
-export const FormLabel = styled.label`
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-left: 2rem;
-  margin-top: 0.7rem;
-  display: block;
-  transition: all 0.3s;
-  text-align: right;
-`;
-
 export const FormInput = styled.input`
   font-size: 1.5rem;
   font-family: inherit;
@@ -176,44 +152,11 @@ export const FormInput = styled.input`
   &:focus {
     outline: none;
     box-shadow: 0 1rem 2rem rgba(#000, 0.1);
-    // border-bottom: 3px solid #55c57a;
   }
-
-  // &:focus:invalid {
-  //   border-bottom: 3px solid #ff7730;
-  // }
 
   &::-webkit-input-placeholder {
     color: #999;
   }
-
-  &::placeholder-shown + ${FormLabel} {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-4rem);
-  }
-`;
-
-export const LoginDescContainer = styled.div`
-  width: 50%;
-  padding: 4rem;
-  display: flex;
-  flex-direction: column;
-  @media only screen and (max-width: 75em) {
-    width: 35%;
-  }
-
-  @media only screen and (max-width: 56.25em) {
-    display: none;
-  } ;
-`;
-
-export const LoginDesc = styled.p`
-  font-size: 1.6rem;
-  color: #fff;
-  white-space: pre-line;
-  text-align: right;
-  line-height: 3rem;
 `;
 
 export const LoginLink = styled(Link)`

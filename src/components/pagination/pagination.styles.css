@@ -1,17 +1,6 @@
 .paginationItemStyle {
     margin-left: 5px;
     border:1px solid transparent !important;
-    /* .page-link {
-        color: #fff
-    }
-    &.page-item {
-        &.active {
-            button {
-                background-color: #e67e22 !important;
-                border:1px solid #e67e22 !important;
-            }
-        }
-    } */
 }
 
 .paginationItemStyle .page-item{

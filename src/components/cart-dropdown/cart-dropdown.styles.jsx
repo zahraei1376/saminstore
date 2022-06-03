@@ -44,7 +44,6 @@ export const Button = styled.button`
   cursor: pointer;
   color: white;
   background-color: #e67e22;
-  //   border:1px solid transparent;
 
   &:hover {
     color: #e67e22;
@@ -53,6 +52,5 @@ export const Button = styled.button`
     text-decoration: none;
     outline: none;
     border: none;
-    // border:1px solid #e67e22;
   }
 `;

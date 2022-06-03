@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-// import Secondaryheader from '../../component/SecondaryNavigation/Secondaryheader.component';
 import { createStructuredSelector } from "reselect";
 import CheckoutItemComponent from "../../components/checkout-item/checkout-item.component";
 import {
@@ -16,8 +15,6 @@ import {
   CheckoutHeaderBlockTotal,
   Button,
 } from "./checkout.styles";
-// import CheckOteItem from '../../component/checkout-item/checkout-item.component';
-// import CartItem from '../../component/cart-item/cart-item.component';
 
 const CheckoutPage = ({ cartItems, total }) => (
   <CheckoutContainer>

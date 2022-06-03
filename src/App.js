@@ -3,7 +3,6 @@ import React, { lazy, Suspense } from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 // //////////////////////////////////////
 import MySpinner from "./components/spinner/spinner.component";
-import { Redirect } from "react-router-dom";
 // //////////////////////////////////////
 const HomePage = lazy(() => import("./pages/home/home.component"));
 const ShowProduct = lazy(() =>
@@ -13,40 +12,33 @@ const NotFoundPage = lazy(() => import("./pages/notFound/notFound.component"));
 const LoginRegisterPage = lazy(() =>
   import("./pages/login-register/login-register.component")
 );
-const CheckOutPage = lazy(() =>
-  import("./pages/checkout/checkout.component")
-);
-
-const CompleteThePurchaseProcess = lazy(() =>
-  import("./pages/completeThePurchaseProcess/completeThePurchaseProcess.component")
-);
+const CheckOutPage = lazy(() => import("./pages/checkout/checkout.component"));
 ////////////////////////////////////////////////////////
 const Layout = () => {
-  return(
-  <BrowserRouter>
-    <Switch>
-      <Suspense fallback={<MySpinner />}>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/showProduct/:id" component={ShowProduct} />
-        <Route exact path="/checkout" component={CheckOutPage} />
-        <Route exact path="/register">
-          <LoginRegisterPage
-            type="register"
-            url="https://fakestoreapi.com/users"
-          />
-        </Route>
-        <Route exact path="/login">
-          <LoginRegisterPage
-            type="login"
-            url="https://fakestoreapi.com/auth/login"
-          />
-        </Route>
-        {/* <Route exact path="/completePurchaseProcess" component={CompleteThePurchaseProcess} /> */}
-        
-        {/* <Route component={NotFoundPage} /> */}
-      </Suspense>
-    </Switch>
-  </BrowserRouter>
-)};
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Suspense fallback={<MySpinner />}>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/showProduct/:id" component={ShowProduct} />
+          <Route exact path="/checkout" component={CheckOutPage} />
+          <Route exact path="/register">
+            <LoginRegisterPage
+              type="register"
+              url="https://fakestoreapi.com/users"
+            />
+          </Route>
+          <Route exact path="/login">
+            <LoginRegisterPage
+              type="login"
+              url="https://fakestoreapi.com/auth/login"
+            />
+          </Route>
+          {/* <Route component={NotFoundPage} /> */}
+        </Suspense>
+      </Switch>
+    </BrowserRouter>
+  );
+};
 
 export default Layout;

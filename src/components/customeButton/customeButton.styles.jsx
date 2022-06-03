@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const Button = styled.a`
   text-align: center;
   display: flex;
+  justify-content:center;
+  align-items:center;
   min-width: 10rem;
   width: auto;
   height: 4rem;
@@ -11,11 +13,12 @@ export const Button = styled.a`
   text-transform: uppercase;
   font-family: inherit;
   font-weight: bolder;
-  border: none;
+  border: 1px solid #e67e22;
   align-items: center;
   cursor: pointer;
   color: white;
   background-color: #e67e22;
+  margin-right: 2rem;
 
   &:hover {
     color: black;

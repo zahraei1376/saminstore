@@ -7,27 +7,26 @@ export const Container = styled.div`
   background-image: url(${back});
   background-repeat: no-repeat;
   background-size: cover;
-  padding:2rem 5rem;
-  display:flex; 
-  justify-content:end;
-  // align-items:center;
-  position:relative;
+  padding: 2rem 5rem;
+  display: flex;
+  justify-content: end;
+  position: relative;
 `;
 
 export const HeadingContainer = styled.div`
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export const HeadingTitle = styled.h1`
-    font-size:5rem;
-    color:#fff;
+  font-size: 5rem;
+  color: #fff;
 `;
 
 export const HeadingSubTitle = styled.h2`
-    font-size:3rem;
-    color:#fff;
-    margin-top:2rem;
+  font-size: 3rem;
+  color: #fff;
+  margin-top: 2rem;
 `;

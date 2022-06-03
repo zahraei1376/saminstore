@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { setCurrentUser } from "../../redux/user/user.action";
 import { connect } from "react-redux";
-// import MySnackbar from '../../messageBox/messageBox.component';
 import {
   ContainerGroup,
   IconContainer,
   SectionLogin,
   LoginBox,
   TitleLogin,
-  LoginFormContainer,
   LoginForm,
   FormGroup,
   FormGroupBtn,
   FormInput,
   LoginLink,
-  FormLabel,
-  LoginDescContainer,
-  LoginDesc,
   FooterLogin,
   FooterLoginText,
   FooterLoginLink,
@@ -82,8 +77,8 @@ const LoginPage = ({
     <SectionLogin>
       <LoginBox>
         <TitleContainer>
-        {loading ? <MySpinner margin="true" /> : ""}
-        <TitleLogin>{type === "register" ? "sign up" : "sign in"}</TitleLogin>
+          {loading ? <MySpinner margin="true" /> : ""}
+          <TitleLogin>{type === "register" ? "sign up" : "sign in"}</TitleLogin>
         </TitleContainer>
         <LoginForm onSubmit={handleSubmit(onSubmit)}>
           <ContainerGroup>

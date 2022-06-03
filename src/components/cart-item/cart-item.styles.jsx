@@ -23,10 +23,10 @@ export const CarItemDetails = styled.div`
 `;
 
 export const CarItemDetailsName = styled.span`
-font-size: 1.8rem;
+  font-size: 1.8rem;
   margin-bottom: 5px;
-  font-weight:900;
+  font-weight: 900;
 `;
 export const CarItemDetailsPrice = styled.span`
-font-size: 1.5rem;
+  font-size: 1.5rem;
 `;

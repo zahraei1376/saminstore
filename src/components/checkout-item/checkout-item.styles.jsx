@@ -4,7 +4,7 @@ const IconsCss = css`
   display: flex;
   justify-content: center;
   align-items: Center;
-  font-size:2rem;
+  font-size: 2rem;
   @media screen and (max-width: 37.5em) {
     width: 50%;
     text-align: center;
@@ -15,9 +15,6 @@ export const CheckOutItemContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-//   @media screen and (max-width: 37.5em) {
-//     flex-direction: column;
-//   }
 `;
 
 export const ImageContainer = styled.div`
@@ -42,9 +39,6 @@ export const CheckOutItemName = styled.span`
 
 export const CheckOutItemQuantity = styled.span`
   ${IconsCss};
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
 `;
 
 export const CheckOutItemPrice = styled.span`

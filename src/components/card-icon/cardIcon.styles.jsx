@@ -24,12 +24,10 @@ export const CardIconItemCount = styled.span`
   width: 1.75rem;
   border-radius: 50%;
   background-color: #e67e22;
-  // background-color: var(red);
   color: #fff;
   position: absolute;
   top: -0.5rem;
   right: -1rem;
-
   display: flex;
   justify-content: center;
   align-items: center;

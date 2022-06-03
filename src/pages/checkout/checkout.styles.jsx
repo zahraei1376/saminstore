@@ -22,7 +22,6 @@ export const CheckoutHeader = styled.div`
   height: 6rem;
   display: flex;
   justify-content: space-between;
-  //   padding-bottom:1rem;
   margin-bottom: 2rem;
   border-bottom: 1px solid darkgray;
 `;
@@ -33,14 +32,11 @@ export const CheckoutHeaderBlock = styled.div`
   display: flex;
   justify-content: center;
   align-items: Center;
-  //   border-bottom: 1px solid darkgray;
 `;
 
 export const CheckoutHeaderSpan = styled.span`
   text-transform: capitalize;
   font-size: 3rem;
-  // border-bottom:1px solid #000;
-  //   margin-top:4rem;
 `;
 
 export const CheckoutHeaderSpanTotal = styled.span`
@@ -63,9 +59,8 @@ export const Button = styled.a`
   background-color: transparent;
   border-radius: 1rem;
   margin-top: 4rem;
-  // border: 1px solid transparent;
   &:hover {
-    text-decoration:none;
+    text-decoration: none;
     color: black;
     background-color: white;
     border: 2px solid black;
@@ -74,10 +69,8 @@ export const Button = styled.a`
 
 export const CheckoutHeaderBlockTotal = styled.div`
   width: 100%;
-  // height: 4rem;
   display: flex;
   justify-content: space-evenly;
   align-items: Center;
- margin-top:auto;
-  //   border-bottom: 1px solid darkgray;
+  margin-top: auto;
 `;

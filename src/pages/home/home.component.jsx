@@ -1,8 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import SearchBox from "../../components/searchBox/searchBox.component";
 import ShowProducts from "../../components/showProducts/showProducts.component";
 import SideBarStore from "../../components/sidebar/sidebar.component";
 import Slider from "../../components/slider/slider.component";
@@ -14,17 +12,18 @@ import {
   selectError,
   selectLoading,
 } from "../../redux/shop/shop.selector";
-import { ContainerProducts, ContainerSearchBox, ContainerTitle, ShopContainer, SidebarContainer, Title } from "./home.styles";
+import {
+  ContainerProducts,
+  ShopContainer,
+  SidebarContainer,
+} from "./home.styles";
 
-const Home = ({ fetchCollectionsStartAsync, data, loading, error }) => {
+const Home = ({ fetchCollectionsStartAsync, data, loading }) => {
   const [allProduct, setAllProduct] = useState([]);
   const [items, setItems] = useState([]);
   const [count, setCount] = useState(0);
   const [current, setCurrent] = useState(0);
   const [searchItem, setSearchItem] = useState("");
-  // useEffect(()=>{
-  //   RemoveAll();
-  // },[])
 
   useEffect(() => {
     setAllProduct(data);
@@ -45,21 +44,6 @@ const Home = ({ fetchCollectionsStartAsync, data, loading, error }) => {
     }
   }, [searchItem]);
 
-  // useEffect(()=>{
-  //   console.log('searchItem' , searchItem);
-  //   if(searchItem){
-  //     fetch(`https://fakestoreapi.com/products/category/${searchItem}`)
-  //           .then(res=>res.json())
-  //           .then(json=>{
-  //             console.log('json' , json);
-  //             if(json && json.length > 0){
-  //               setItems(json);
-  //             }
-
-  //           })
-  //   }
-  // },[searchItem])
-
   const onPageClick = (cun) => {
     // `https://api.instantwebtools.net/v1/passenger?page=${current-1}&size=${6}`
     let tempItems = allProduct.slice(cun * 6, 6 * (cun + 1));
@@ -67,24 +51,14 @@ const Home = ({ fetchCollectionsStartAsync, data, loading, error }) => {
     setCurrent(cun);
   };
 
-  // if (loading) {
-  //   return <MySpinner />;
-  // }
-
   return (
     <>
       <Slider />
       <ShopContainer>
         <SidebarContainer>
-          <SideBarStore setSearchItem={setSearchItem} searchItem={searchItem}/>
+          <SideBarStore setSearchItem={setSearchItem} searchItem={searchItem} />
         </SidebarContainer>
         <ContainerProducts>
-          {/* <ContainerTitle>
-            <Title>{searchItem ? searchItem : "all"}</Title>
-          </ContainerTitle> */}
-          {/* <ContainerSearchBox>
-            <SearchBox setSearchItem={setSearchItem} searchItem={searchItem} />
-          </ContainerSearchBox> */}
           {!loading ? (
             <ShowProducts
               setSearchItem={setSearchItem}
@@ -103,8 +77,6 @@ const Home = ({ fetchCollectionsStartAsync, data, loading, error }) => {
   );
 };
 
-// export default Home;
-
 const mapStateToProps = createStructuredSelector({
   data: selectCollections,
   loading: selectLoading,
@@ -112,9 +84,9 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCollectionsStartAsync: (url) => dispatch(fetchCollectionsStartAsync(url)),
-  RemoveAll:() =>dispatch(RemoveAll()),
-  // addItem: item => dispatch(addItem(item))
+  fetchCollectionsStartAsync: (url) =>
+    dispatch(fetchCollectionsStartAsync(url)),
+  RemoveAll: () => dispatch(RemoveAll()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

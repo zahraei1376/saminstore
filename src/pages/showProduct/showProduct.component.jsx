@@ -7,7 +7,6 @@ import {
   Image,
   ImageContainer,
   InfoContainer,
-  InfoTop,
   ShowDecription,
   ShowPrice,
   ShowTitle,
@@ -19,22 +18,12 @@ import { useParams } from "react-router-dom";
 import MySpinner from "../../components/spinner/spinner.component";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.action";
-import {
-  setMessageSnackBar,
-  toggleSnackBarClose,
-  toggleSnackBarOpen,
-} from "../../redux/snackBar/snackBar.actions";
+import { toggleSnackBarOpen } from "../../redux/snackBar/snackBar.actions";
 import { selectShowSnack } from "../../redux/snackBar/snackBar.selector";
 import SimpleSnackbar from "../../components/snackbar/snackbar.component";
 import { createStructuredSelector } from "reselect";
 
-const ShowProduct = ({
-  addItem,
-  setMessageSnackBar,
-  toggleSnackBarClose,
-  showSnackBar,
-  toggleSnackBarOpen,
-}) => {
+const ShowProduct = ({ addItem, showSnackBar, toggleSnackBarOpen }) => {
   let { id } = useParams();
   const [item, setItem] = useState("");
   const [loading, setLoading] = useState(true);
@@ -42,7 +31,6 @@ const ShowProduct = ({
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
         setItem(json);
         setLoading(false);
       });
@@ -63,14 +51,12 @@ const ShowProduct = ({
               <Image src={item && item.image ? item.image : defImage} />
             </ImageContainer>
             <InfoContainer>
-              {/* <InfoTop></InfoTop> */}
               <ShowTitle>{item && item.title}</ShowTitle>
               <ShowPrice>${item && item.price}</ShowPrice>
               <ShowDecription>{item && item.description}</ShowDecription>
               <ContainerButton>
                 <Button
                   onClick={() => {
-                    // addItem(item);
                     toggleSnackBarOpen({
                       message: "add to card",
                       type: "seccess",
@@ -84,7 +70,6 @@ const ShowProduct = ({
             </InfoContainer>
           </>
         )}
-        
       </ContainerProduct>
     </Container>
   );
@@ -96,8 +81,6 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItem(item)),
-  setMessageSnackBar: (message) => dispatch(setMessageSnackBar(message)),
-  toggleSnackBarClose: () => dispatch(toggleSnackBarClose()),
   toggleSnackBarOpen: (message) => dispatch(toggleSnackBarOpen(message)),
 });
 

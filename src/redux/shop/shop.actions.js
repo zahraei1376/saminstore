@@ -19,14 +19,13 @@ export const fetchCollectionsStartAsync = (url) => {
   return (dispatch) => {
     dispatch(fetchCollectionsStart());
     axios
-      .get(url , {
+      .get(url, {
         headers: {
-            'Content-Type': 'application/json',
-            // 'Authorization': 'JWT fefege...'
+          "Content-Type": "application/json",
+          // 'Authorization': 'JWT fefege...'
         },
       })
       .then((res) => {
-        console.log("res", res);
         dispatch(fectchCollectionsCuccess(res.data));
       })
       .catch((res) => {

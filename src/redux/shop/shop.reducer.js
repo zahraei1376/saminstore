@@ -1,4 +1,3 @@
-// import ShopData from './shopData';
 import shopActionTypes from './shop.types';
 
 const INITIAL={
