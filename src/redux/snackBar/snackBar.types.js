@@ -1,6 +1,7 @@
 const snackBarActionTypes = {
     TOGGLE_SNACKBAR_OPEN : 'TOGGLE_SNACKBAR_OPEN',
     TOGGLE_SNACKBAR_CLOSE : 'TOGGLE_SNACKBAR_CLOSE',
+    SET_MESSAGE_SNACKBAR:'SET_MESSAGE_SNACKBAR',
 }
 
 export default snackBarActionTypes;

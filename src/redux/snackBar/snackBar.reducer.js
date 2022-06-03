@@ -3,6 +3,7 @@ import snackBarActionTypes from "./snackBar.types";
 const INITIAL = {
   toggleSnack: false,
   snackbarMessage: null,
+  type:"",
 };
 
 const SnackBarReducer = (state = INITIAL, action) => {
@@ -11,7 +12,8 @@ const SnackBarReducer = (state = INITIAL, action) => {
       return {
         ...state,
         toggleSnack: true,
-        snackbarMessage: action.message,
+        snackbarMessage: action.payload.message,
+        type: action.payload.type,
       };
     }
 
@@ -21,7 +23,18 @@ const SnackBarReducer = (state = INITIAL, action) => {
         toggleSnack: false,
         snackbarMessage: null,
       };
+
+      
     }
+
+    case snackBarActionTypes.SET_MESSAGE_SNACKBAR: {
+      return {
+        ...state,
+        snackbarMessage: action.payload,
+      };
+
+    }
+
 
     default: {
       return state;

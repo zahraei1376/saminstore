@@ -1,5 +1,5 @@
-import * as React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from "react";
+import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -7,27 +7,44 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/store";
-import axios from 'axios';
+import axios from "axios";
 //////////////
 
+// For GET requests
 axios.interceptors.request.use(
-  function(successfulReq) {
-    return successfulReq;
-  }, 
-  function(error) {
-    return Promise.reject(error);
+  (req) => {
+    // Add configurations here
+    return req;
+  },
+  (err) => {
+    return Promise.reject(err);
+  }
+);
+
+// For POST requests
+axios.interceptors.response.use(
+  (res) => {
+    // Add configurations here
+    if (res.status === 201) {
+      console.log("Posted Successfully");
+    }
+    return res;
+  },
+  (err) => {
+    console.log("err", err);
+    return Promise.reject(err);
   }
 );
 
 ReactDOM.render(
-    <Provider store={store}>
-      <React.StrictMode>
-          <PersistGate persistor={persistor} >
-            <App />
-          </PersistGate>
-      </React.StrictMode>
-    </Provider>,
-  document.getElementById('root')
+  <Provider store={store}>
+    <React.StrictMode>
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
+    </React.StrictMode>
+  </Provider>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

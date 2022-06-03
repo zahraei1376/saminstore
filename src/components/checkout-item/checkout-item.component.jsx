@@ -16,7 +16,7 @@ const CheckOutItem=({cartItem,clearItem ,addItem,RemoveItem})=>{
                 <CheckOutItemValue>{quantity}</CheckOutItemValue>
                 <CheckOutItemArrow onClick={()=> addItem(cartItem)}>&#10095;</CheckOutItemArrow>
             </CheckOutItemQuantity>
-            <CheckOutItemPrice>{price}</CheckOutItemPrice>
+            <CheckOutItemPrice>{price}$</CheckOutItemPrice>
             <CheckOutItemRemoveButton onClick={()=> clearItem(cartItem)}>&#10005;</CheckOutItemRemoveButton>
         </CheckOutItemContainer>
     )};

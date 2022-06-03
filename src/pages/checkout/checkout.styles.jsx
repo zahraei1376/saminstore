@@ -38,6 +38,7 @@ export const CheckoutHeaderBlock = styled.div`
 
 export const CheckoutHeaderSpan = styled.span`
   text-transform: capitalize;
-  font-size: 2rem;
+  font-size: 3rem;
+  // border-bottom:1px solid #000;
 //   margin-top:4rem;
 `;

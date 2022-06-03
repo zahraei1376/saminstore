@@ -12,27 +12,62 @@ import defImage from "../../assets/images/backk.jpg";
 import { addItem } from "../../redux/cart/cart.action";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
-const BoxStore = ({ item,addItem }) => {
+import {
+  setMessageSnackBar,
+  toggleSnackBarClose,
+  toggleSnackBarOpen,
+} from "../../redux/snackBar/snackBar.actions";
+import { selectShowSnack } from "../../redux/snackBar/snackBar.selector";
+import SimpleSnackbar from "../snackbar/snackbar.component";
+import { createStructuredSelector } from "reselect";
+const BoxStore = ({
+  item,
+  addItem,
+  showSnackBar,
+  setMessageSnackBar,
+  toggleSnackBarClose,
+  toggleSnackBarOpen,
+}) => {
   let history = useHistory();
   return (
     <BoxContainer
-    onClick={()=>history.push(`/showProduct/${item.id}`)} 
-    // href={`/showProduct/${item.id}`}
+      onClick={() => history.push(`/showProduct/${item.id}`)}
+      // href={`/showProduct/${item.id}`}
     >
       <BoxImg src={item.image ? item.image : defImage} />
-      <BoxTitle>{limitRecipeTitle(item.title , 14)}</BoxTitle>
+      <BoxTitle>{limitRecipeTitle(item.title, 14)}</BoxTitle>
       <BoxPrice>${item.price}</BoxPrice>
       <BoxDecription>{limitRecipeTitle(item.description, 64)}</BoxDecription>
-      <Button onClick={(e)=>{
-        addItem(item);
-        e.stopPropagation();
-        }}>add to card</Button>
+      <Button
+        onClick={(e) => {
+          addItem(item);
+          toggleSnackBarOpen({
+            message: "add to card",
+            type: "seccess",
+          });
+          e.stopPropagation();
+        }}
+      >
+        add to card
+      </Button>
+      {showSnackBar && <SimpleSnackbar />}
     </BoxContainer>
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addItem: (item) => dispatch(addItem(item)),
+// const mapDispatchToProps = (dispatch) => ({
+//   addItem: (item) => dispatch(addItem(item)),
+// });
+
+const mapStateToProps = createStructuredSelector({
+  showSnackBar: selectShowSnack,
 });
 
-export default connect(null, mapDispatchToProps)(BoxStore);
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (item) => dispatch(addItem(item)),
+  setMessageSnackBar: (message) => dispatch(setMessageSnackBar(message)),
+  toggleSnackBarClose: () => dispatch(toggleSnackBarClose()),
+  toggleSnackBarOpen: (message) => dispatch(toggleSnackBarOpen(message)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BoxStore);

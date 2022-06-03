@@ -16,7 +16,8 @@ const CheckOutPage = lazy(() =>
   import("./pages/checkout/checkout.component")
 );
 // /////////////////////////////////////////////////////
-const Layout = () => (
+const Layout = () => {
+  return(
   <Router>
     <Switch>
       <Suspense fallback={<MySpinner />}>
@@ -35,10 +36,10 @@ const Layout = () => (
             url="https://fakestoreapi.com/auth/login"
           />
         </Route>
-        <Route path="*" component={NotFoundPage} />
-        {/* <Route path="*" component={NotFoundPage} /> */}
+        <Route component={NotFoundPage} />
       </Suspense>
     </Switch>
   </Router>
-);
+)};
+
 export default Layout;

@@ -1,33 +1,51 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { toggleSnackBar } from "../../redux/snackBar/snackBar.actions";
+import { createStructuredSelector } from "reselect";
+import { toggleSnackBarClose } from "../../redux/snackBar/snackBar.actions";
 import {
   selectShowSnack,
   selectSnackBarMessage,
+  selectSnackBarType,
 } from "../../redux/snackBar/snackBar.selector";
-import { useSnackbar } from 'notistack';
+import { Container, Span } from "./snackbar.styles";
+// import Styles from "./snackbar.module.css";
 
-const SimpleSnackbar = ({toggleSnackBar,messageSnackBar ,showSnackBar}) =>{
-    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+const SimpleSnackbar = ({
+  toggleSnackBarClose,
+  messageSnackBar,
+  showSnackBar,
+  selectSnackBarType,
+}) => {
+  useEffect(() => {
+    console.log('ffffffffffffff');
+    setTimeout(() => {
+      toggleSnackBarClose();
+    }, 4000);
+  }, []);
+  return (
+    <Container
+      error={selectSnackBarType === "error" ? "error" : null}
+      showSnackBar={showSnackBar ? "true" : null}
+    >
+      {messageSnackBar}
+      <Span onClick={() => toggleSnackBarClose()}>&#10005;</Span>
+    </Container>
+  );
+};
 
-    useEffect(()=>{
-        enqueueSnackbar(messageSnackBar);
-    },[])
-    const handleClick = () => {
-        
-    };
+// const mapStateToProps = (state) => ({
+//   showSnackBar: selectShowSnack(state),
+//   messageSnackBar: selectSnackBarMessage(state),
+// });
 
-    return (
-        <button onClick={handleClick}>messageSnackBar</button>
-    );
-}
-const mapStateToProps = (state) => ({
-  showSnackBar: selectShowSnack(state),
-  messageSnackBar: selectSnackBarMessage(state),
+const mapStateToProps = createStructuredSelector({
+  showSnackBar: selectShowSnack,
+  messageSnackBar: selectSnackBarMessage,
+  selectSnackBarType: selectSnackBarType,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleSnackBar: (toggle) => dispatch(toggleSnackBar(toggle)),
+  toggleSnackBarClose: () => dispatch(toggleSnackBarClose()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SimpleSnackbar);

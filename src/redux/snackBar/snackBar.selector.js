@@ -19,3 +19,8 @@ export const selectSnackBarMessage = createSelector(
     [selectShop],
     snackBarReducer => snackBarReducer.snackbarMessage
 );
+
+export const selectSnackBarType = createSelector(
+  [selectShop],
+  snackBarReducer => snackBarReducer.type
+);

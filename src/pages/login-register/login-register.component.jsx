@@ -30,17 +30,19 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import {
   setMessageSnackBar,
-  toggleSnackBar,
+  toggleSnackBarClose,
+  toggleSnackBarOpen,
 } from "../../redux/snackBar/snackBar.actions";
 import { selectShowSnack } from "../../redux/snackBar/snackBar.selector";
 import MySpinner from "../../components/spinner/spinner.component";
-// import SimpleSnackbar from "../../components/snackbar/snackbar.component";
+import SimpleSnackbar from "../../components/snackbar/snackbar.component";
 import { createStructuredSelector } from "reselect";
 const LoginPage = ({
   setCurrentUser,
   type,
   url,
-  toggleSnackBar,
+  toggleSnackBarClose,
+  toggleSnackBarOpen,
   setMessageSnackBar,
   showSnackBar,
 }) => {
@@ -58,10 +60,10 @@ const LoginPage = ({
   /////////////////////////
   let history = useHistory();
   //////////////////////////
-  const onSubmit = (data) => {
+  const onSubmit = async(data) => {
     setLoading((pre) => !pre);
     console.log("data", data);
-    axios
+    await axios
       .post(`https://cors-anywhere.herokuapp.com/${url}`, data)
       .then((res) => {
         console.log("res", res);
@@ -71,14 +73,15 @@ const LoginPage = ({
         } else {
           history.push("/login");
         }
+        // setMessageSnackBar("The operation was successful");
         setLoading((pre) => !pre);
-        toggleSnackBar(true);
+        toggleSnackBarOpen({message:"The operation was successful" , type:"seccess"});
       })
       .catch((err) => {
-        console.log(err);
-        setMessageSnackBar(err);
+        console.log(err.message);
+        // setMessageSnackBar(err.message);
         setLoading((pre) => !pre);
-        toggleSnackBar(true);
+        toggleSnackBarOpen({message:err.message , type:"error"});
       });
   };
   ///////////////////////
@@ -139,7 +142,7 @@ const LoginPage = ({
           Copyright &copy; by Zahra Alipour
         </FooterLoginText>
       </FooterLogin>
-      {/* {showSnackBar && <SimpleSnackbar />} */}
+      {showSnackBar && <SimpleSnackbar />}
       {loading ? <MySpinner /> : ""}
     </SectionLogin>
   );
@@ -158,7 +161,8 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
   setMessageSnackBar: (message) => dispatch(setMessageSnackBar(message)),
-  toggleSnackBar: (toggle) => dispatch(toggleSnackBar(toggle)),
+  toggleSnackBarClose: () => dispatch(toggleSnackBarClose()),
+  toggleSnackBarOpen: (message) => dispatch(toggleSnackBarOpen(message)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

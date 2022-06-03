@@ -4,7 +4,7 @@ const IconsCss = css`
   display: flex;
   justify-content: center;
   align-items: Center;
-  font-size:1.5rem;
+  font-size:2rem;
   @media screen and (max-width: 37.5em) {
     width: 50%;
     text-align: center;
