@@ -12,6 +12,9 @@ import {
   CheckoutHeader,
   CheckoutHeaderBlock,
   CheckoutHeaderSpan,
+  CheckoutHeaderSpanTotal,
+  CheckoutHeaderBlockTotal,
+  Button,
 } from "./checkout.styles";
 // import CheckOteItem from '../../component/checkout-item/checkout-item.component';
 // import CartItem from '../../component/cart-item/cart-item.component';
@@ -39,9 +42,10 @@ const CheckoutPage = ({ cartItems, total }) => (
       <CheckoutItemComponent key={cartItem.id} cartItem={cartItem} />
     ))}
 
-    <CheckoutHeaderBlock>
-      <CheckoutHeaderSpan>TOTAL:${total}</CheckoutHeaderSpan>
-    </CheckoutHeaderBlock>
+    <CheckoutHeaderBlockTotal>
+      <CheckoutHeaderSpanTotal>TOTAL:${total}</CheckoutHeaderSpanTotal>
+      <Button href="#">Complete purchase process</Button>
+    </CheckoutHeaderBlockTotal>
   </CheckoutContainer>
 );
 

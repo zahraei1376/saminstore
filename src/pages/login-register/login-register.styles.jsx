@@ -8,6 +8,13 @@ const IconsCss = css`
   color: #fff;
 `;
 
+export const TitleContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+`;
+
 export const IconContainer = styled.div`
   width: 10%;
   display: flex;
@@ -25,7 +32,6 @@ export const MyLockOutlinedIcon = styled(LockOutlinedIcon)`
 
 export const TitleLogin = styled.h1`
   font-size: 3.5rem;
-  margin-bottom: 4rem;
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
@@ -126,7 +132,7 @@ export const ContainerGroup = styled.div`
 `;
 
 export const ErrorTag = styled.p`
-  color: #930B0B;
+  color: #930b0b;
   font-size: 2rem;
   margin: 0;
 `;

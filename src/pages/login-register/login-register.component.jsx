@@ -23,16 +23,13 @@ import {
   MyLockOutlinedIcon,
   MyPersonOutlineIcon,
   ErrorTag,
+  TitleContainer,
 } from "./login-register.styles";
 import { useForm } from "react-hook-form";
 import LoginButton from "../../components/btn/btn.component";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import {
-  setMessageSnackBar,
-  toggleSnackBarClose,
-  toggleSnackBarOpen,
-} from "../../redux/snackBar/snackBar.actions";
+import { toggleSnackBarOpen } from "../../redux/snackBar/snackBar.actions";
 import { selectShowSnack } from "../../redux/snackBar/snackBar.selector";
 import MySpinner from "../../components/spinner/spinner.component";
 import SimpleSnackbar from "../../components/snackbar/snackbar.component";
@@ -41,9 +38,7 @@ const LoginPage = ({
   setCurrentUser,
   type,
   url,
-  toggleSnackBarClose,
   toggleSnackBarOpen,
-  setMessageSnackBar,
   showSnackBar,
 }) => {
   ////////////////////////
@@ -53,14 +48,11 @@ const LoginPage = ({
     formState: { errors },
   } = useForm();
   /////////////////////////
-  const [showMessage, setShowMessage] = useState(false);
-  const [message, setMessage] = useState("");
-  const [status, setStatus] = useState(0);
   const [loading, setLoading] = useState(false);
   /////////////////////////
   let history = useHistory();
   //////////////////////////
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
     setLoading((pre) => !pre);
     console.log("data", data);
     await axios
@@ -73,22 +65,26 @@ const LoginPage = ({
         } else {
           history.push("/login");
         }
-        // setMessageSnackBar("The operation was successful");
         setLoading((pre) => !pre);
-        toggleSnackBarOpen({message:"The operation was successful" , type:"seccess"});
+        toggleSnackBarOpen({
+          message: "The operation was successful",
+          type: "seccess",
+        });
       })
       .catch((err) => {
         console.log(err.message);
-        // setMessageSnackBar(err.message);
         setLoading((pre) => !pre);
-        toggleSnackBarOpen({message:err.message , type:"error"});
+        toggleSnackBarOpen({ message: err.message, type: "error" });
       });
   };
   ///////////////////////
   return (
     <SectionLogin>
       <LoginBox>
+        <TitleContainer>
+        {loading ? <MySpinner margin="true" /> : ""}
         <TitleLogin>{type === "register" ? "sign up" : "sign in"}</TitleLogin>
+        </TitleContainer>
         <LoginForm onSubmit={handleSubmit(onSubmit)}>
           <ContainerGroup>
             <FormGroup>
@@ -143,16 +139,10 @@ const LoginPage = ({
         </FooterLoginText>
       </FooterLogin>
       {showSnackBar && <SimpleSnackbar />}
-      {loading ? <MySpinner /> : ""}
     </SectionLogin>
   );
   /////////////////////////
 };
-
-// const mapStateToProps = (state) => ({
-//   showSnackBar: selectShowSnack(state),
-//   // messageSnackBar:selectSnackBarMessage(state)
-// });
 
 const mapStateToProps = createStructuredSelector({
   showSnackBar: selectShowSnack,
@@ -160,8 +150,6 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
-  setMessageSnackBar: (message) => dispatch(setMessageSnackBar(message)),
-  toggleSnackBarClose: () => dispatch(toggleSnackBarClose()),
   toggleSnackBarOpen: (message) => dispatch(toggleSnackBarOpen(message)),
 });
 

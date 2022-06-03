@@ -76,8 +76,8 @@ export const Container = styled.div`
   border-radius: 2px;
   padding: 1rem 2rem;
   position: fixed;
-  z-index: 1;
-  right: 40%;
+  z-index: 9999;
+  right: 10%;
   bottom: 30px;
   font-size: 2rem;
   background-color: ${(props) => (props.error ? "#930B0B" : "#333")};
@@ -91,5 +91,6 @@ export const Container = styled.div`
 
 export const Span = styled.span`
   font-size: 1.5rem;
+  margin-left:1rem;
   cursor:pointer;
 `;

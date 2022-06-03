@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const CheckoutContainer = styled.div`
   width: 70%;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
-  padding:2rem;
-  border-radius:1rem;
-  background-color:#fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #fff;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
@@ -22,8 +22,8 @@ export const CheckoutHeader = styled.div`
   height: 6rem;
   display: flex;
   justify-content: space-between;
-//   padding-bottom:1rem;
-  margin-bottom:2rem;
+  //   padding-bottom:1rem;
+  margin-bottom: 2rem;
   border-bottom: 1px solid darkgray;
 `;
 
@@ -33,12 +33,51 @@ export const CheckoutHeaderBlock = styled.div`
   display: flex;
   justify-content: center;
   align-items: Center;
-//   border-bottom: 1px solid darkgray;
+  //   border-bottom: 1px solid darkgray;
 `;
 
 export const CheckoutHeaderSpan = styled.span`
   text-transform: capitalize;
   font-size: 3rem;
   // border-bottom:1px solid #000;
-//   margin-top:4rem;
+  //   margin-top:4rem;
+`;
+
+export const CheckoutHeaderSpanTotal = styled.span`
+  text-transform: capitalize;
+  font-size: 3rem;
+  margin-top: 6rem;
+`;
+
+export const Button = styled.a`
+  padding: 1rem 3rem 1rem 3rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: bolder;
+  border: none;
+  border: 2px solid #e67e22;
+  align-items: center;
+  cursor: pointer;
+  color: #e67e22;
+  background-color: transparent;
+  border-radius: 1rem;
+  margin-top: 4rem;
+  // border: 1px solid transparent;
+  &:hover {
+    text-decoration:none;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+  }
+`;
+
+export const CheckoutHeaderBlockTotal = styled.div`
+  width: 100%;
+  // height: 4rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: Center;
+ margin-top:auto;
+  //   border-bottom: 1px solid darkgray;
 `;

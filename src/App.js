@@ -1,8 +1,9 @@
 import "./App.css";
 import React, { lazy, Suspense } from "react";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 // //////////////////////////////////////
 import MySpinner from "./components/spinner/spinner.component";
+import { Redirect } from "react-router-dom";
 // //////////////////////////////////////
 const HomePage = lazy(() => import("./pages/home/home.component"));
 const ShowProduct = lazy(() =>
@@ -15,10 +16,14 @@ const LoginRegisterPage = lazy(() =>
 const CheckOutPage = lazy(() =>
   import("./pages/checkout/checkout.component")
 );
-// /////////////////////////////////////////////////////
+
+const CompleteThePurchaseProcess = lazy(() =>
+  import("./pages/completeThePurchaseProcess/completeThePurchaseProcess.component")
+);
+////////////////////////////////////////////////////////
 const Layout = () => {
   return(
-  <Router>
+  <BrowserRouter>
     <Switch>
       <Suspense fallback={<MySpinner />}>
         <Route exact path="/" component={HomePage} />
@@ -36,10 +41,12 @@ const Layout = () => {
             url="https://fakestoreapi.com/auth/login"
           />
         </Route>
-        <Route component={NotFoundPage} />
+        {/* <Route exact path="/completePurchaseProcess" component={CompleteThePurchaseProcess} /> */}
+        
+        {/* <Route component={NotFoundPage} /> */}
       </Suspense>
     </Switch>
-  </Router>
+  </BrowserRouter>
 )};
 
 export default Layout;
