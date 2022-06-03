@@ -27,10 +27,12 @@ const BoxStore = ({
   setMessageSnackBar,
   toggleSnackBarClose,
   toggleSnackBarOpen,
+  key,
 }) => {
   let history = useHistory();
   return (
     <BoxContainer
+    key={key}
       onClick={() => history.push(`/showProduct/${item.id}`)}
       // href={`/showProduct/${item.id}`}
     >

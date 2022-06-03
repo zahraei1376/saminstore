@@ -25,7 +25,7 @@ const ShowProducts = ({
       <ContainerBoxes>
         {items &&
           items.length > 0 &&
-          items.map((item) => <BoxStore item={item} key={item.index} />)}
+          items.map((item) => <BoxStore item={item} key={item.id} />)}
       </ContainerBoxes>
       <ContainerPagination>
         <PaginationStore
