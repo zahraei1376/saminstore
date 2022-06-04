@@ -30,8 +30,13 @@ export const Title = styled.h1`
   }
 `;
 
+export const P = styled.p`
+  font-size: 2.5rem;
+  text-align: center;
+`;
 export const ContainerProduct = styled.div`
   display: flex;
+  min-height: 30rem;
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
   border-radius: 2rem;

@@ -7,6 +7,7 @@ import {
   Image,
   ImageContainer,
   InfoContainer,
+  P,
   ShowDecription,
   ShowPrice,
   ShowTitle,
@@ -22,17 +23,22 @@ import { toggleSnackBarOpen } from "../../redux/snackBar/snackBar.actions";
 import { selectShowSnack } from "../../redux/snackBar/snackBar.selector";
 import SimpleSnackbar from "../../components/snackbar/snackbar.component";
 import { createStructuredSelector } from "reselect";
+import axios from "axios";
 
 const ShowProduct = ({ addItem, showSnackBar, toggleSnackBarOpen }) => {
   let { id } = useParams();
   const [item, setItem] = useState("");
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch(`/products/${id}`)
-      .then((res) => res.json())
-      .then((json) => {
-        setItem(json);
+    axios
+      .get(`/products/${id}`)
+      .then((res) => {
+        setItem(res.data);
         setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        toggleSnackBarOpen({ message: err.message, type: "error" });
       });
   }, [id]);
 
@@ -47,27 +53,33 @@ const ShowProduct = ({ addItem, showSnackBar, toggleSnackBarOpen }) => {
           <MySpinner />
         ) : (
           <>
-            <ImageContainer>
-              <Image src={item && item.image ? item.image : defImage} />
-            </ImageContainer>
-            <InfoContainer>
-              <ShowTitle>{item && item.title}</ShowTitle>
-              <ShowPrice>${item && item.price}</ShowPrice>
-              <ShowDecription>{item && item.description}</ShowDecription>
-              <ContainerButton>
-                <Button
-                  onClick={() => {
-                    toggleSnackBarOpen({
-                      message: "add to card",
-                      type: "seccess",
-                    });
-                    addItem(item);
-                  }}
-                >
-                  add to card
-                </Button>
-              </ContainerButton>
-            </InfoContainer>
+            {item ? (
+              <>
+                <ImageContainer>
+                  <Image src={item && item.image ? item.image : defImage} />
+                </ImageContainer>
+                <InfoContainer>
+                  <ShowTitle>{item && item.title}</ShowTitle>
+                  <ShowPrice>${item && item.price}</ShowPrice>
+                  <ShowDecription>{item && item.description}</ShowDecription>
+                  <ContainerButton>
+                    <Button
+                      onClick={() => {
+                        toggleSnackBarOpen({
+                          message: "add to card",
+                          type: "seccess",
+                        });
+                        addItem(item);
+                      }}
+                    >
+                      add to card
+                    </Button>
+                  </ContainerButton>
+                </InfoContainer>
+              </>
+            ) : (
+              <P>dont found your product</P>
+            )}
           </>
         )}
       </ContainerProduct>
