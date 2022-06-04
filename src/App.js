@@ -27,14 +27,14 @@ const Layout = ({currentUser}) => {
           <Route exact path="/showProduct/:id" component={ShowProduct} />
           <Route exact path="/checkout" component={CheckOutPage} />
           <Route exact path="/register">
-          <LoginRegisterPage
+          {/* <LoginRegisterPage
               type="register"
               url="https://fakestoreapi.com/users"
-            />
-          {/* {currentUser ? <Redirect to="/login" /> : <LoginRegisterPage
+            /> */}
+          {currentUser ? <Redirect to="/login" /> : <LoginRegisterPage
               type="register"
               url="/users"
-            />} */}
+            />}
             
           </Route>
           <Route exact path="/login">

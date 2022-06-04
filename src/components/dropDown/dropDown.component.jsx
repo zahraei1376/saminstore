@@ -3,13 +3,19 @@ import Select from 'react-select';
 
 const options = [
   { value: 'Tehran', label: 'Tehran' },
-  { value: 'Qom', label: 'Qom' },
   { value: 'Markazi', label: 'Markazi' },
   { value: 'Qazvin', label: 'Qazvin' },
   { value: 'Mazandaran', label: 'Mazandaran' },
 ];
 
-const DropDown = () =>{
+const subOption = [
+  {id:"Tehran" , city:["Tehran" , "Ghods", "Shahriar" , "Islam City" , "Mallard"]},
+  {id:"Markazi" , city:["Arak" , "Saveh", "Khomein" , "Mahallat" , "Tafresh"]},
+  {id:"Qazvin" , city:["Qazvin" , "Iqbaliyeh", "Shawl" , "Sharifieh" , "Abeek"]},
+  {id:"Mazandaran" , city:["Babol" , "Sari", "Chalous" , "Amol" , "Neka"]}
+]
+
+const DropDown = ({selectedOption , setSelectedOption , options}) =>{
   const [selectedOption, setSelectedOption] = useState(null);
 
   return (
