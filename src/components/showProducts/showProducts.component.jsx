@@ -11,9 +11,9 @@ const ShowProducts = ({ items, count, current, onPageClick }) => {
   return (
     <Container>
       <ContainerBoxes>
-        {items &&
-          items.length > 0 &&
-          items.map((item) => <BoxStore item={item} key={item.id} />)}
+        {items && items.length > 0
+          ? items.map((item) => <BoxStore item={item} key={item.id} />)
+          : ""}
       </ContainerBoxes>
       <ContainerPagination>
         <PaginationStore

@@ -19,21 +19,17 @@ export const fetchCollectionsStartAsync = (url) => {
   return (dispatch) => {
     dispatch(fetchCollectionsStart());
     axios
-      .get(url, {
-        headers: {
-          "Content-Type": "application/json",
-          // 'Authorization': 'JWT fefege...'
-        },
-      })
+      .get(url)
       .then((res) => {
         dispatch(fectchCollectionsCuccess(res.data));
       })
-      .catch((res) => {
-        if (res instanceof Error) {
-          dispatch(fectchCollectionsFailure(res.message));
-        } else {
-          dispatch(fectchCollectionsCuccess(res.data));
-        }
+      .catch((err) => {
+        dispatch(fectchCollectionsFailure(err.message));
+        // if (res instanceof Error) {
+        //   dispatch(fectchCollectionsFailure(res.message));
+        // } else {
+        //   dispatch(fectchCollectionsCuccess(res.data));
+        // }
       });
   };
 };

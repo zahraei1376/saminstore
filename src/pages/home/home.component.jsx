@@ -37,10 +37,10 @@ const Home = ({ fetchCollectionsStartAsync, data, loading }) => {
   useEffect(() => {
     if (searchItem) {
       fetchCollectionsStartAsync(
-        `/products/category/${searchItem}`
+        `https://fakestoreapi.com/products/category/${searchItem}`
       );
     } else {
-      fetchCollectionsStartAsync("/products");
+      fetchCollectionsStartAsync("https://fakestoreapi.com/products");
     }
   }, [searchItem]);
 
@@ -59,7 +59,7 @@ const Home = ({ fetchCollectionsStartAsync, data, loading }) => {
           <SideBarStore setSearchItem={setSearchItem} searchItem={searchItem} />
         </SidebarContainer>
         <ContainerProducts>
-          {!loading ? (
+          {!loading && items.length > 0 ? (
             <ShowProducts
               setSearchItem={setSearchItem}
               searchItem={searchItem}

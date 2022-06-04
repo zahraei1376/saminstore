@@ -33,7 +33,7 @@ const ShowProduct = ({ addItem, showSnackBar, toggleSnackBarOpen }) => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get(`/products/${id}`)
+      .get(`https://fakestoreapi.com/products/${id}`)
       .then((res) => {
         setItem(res.data);
         setLoading(false);
