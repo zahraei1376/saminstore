@@ -4,9 +4,11 @@ import {
   Container,
   ContainerButton,
   ContainerProduct,
+  GoBack,
   Image,
   ImageContainer,
   InfoContainer,
+  NotFoundContainer,
   P,
   ShowDecription,
   ShowPrice,
@@ -78,7 +80,10 @@ const ShowProduct = ({ addItem, showSnackBar, toggleSnackBarOpen }) => {
                 </InfoContainer>
               </>
             ) : (
+              <NotFoundContainer>
               <P>dont found your product</P>
+              <GoBack href="/">go back</GoBack>
+              </NotFoundContainer>
             )}
           </>
         )}

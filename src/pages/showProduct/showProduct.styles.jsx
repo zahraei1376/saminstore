@@ -30,6 +30,17 @@ export const Title = styled.h1`
   }
 `;
 
+export const GoBack = styled.a`
+  font-size:2rem;
+`;
+
+export const NotFoundContainer = styled.div`
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const P = styled.p`
   font-size: 2.5rem;
   text-align: center;
