@@ -14,9 +14,9 @@ import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 const Slider = ({ currentUser, hidden }) => (
   <Container>
-    {/* {!currentUser ? <CardIcon /> : <CustomeButton text="login" url="/login" />} */}
-    <CustomeButton text="login" url="/login" />
-    <CardIcon />
+    {!currentUser ? <CardIcon /> : <CustomeButton text="login" url="/login" />}
+    {/* <CustomeButton text="login" url="/login" /> */}
+    {/* <CardIcon /> */}
     {!hidden && <Cart />}
     <HeadingContainer>
       <HeadingTitle>Samin Online Store</HeadingTitle>

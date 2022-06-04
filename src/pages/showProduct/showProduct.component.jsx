@@ -28,7 +28,7 @@ const ShowProduct = ({ addItem, showSnackBar, toggleSnackBarOpen }) => {
   const [item, setItem] = useState("");
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
+    fetch(`/products/${id}`)
       .then((res) => res.json())
       .then((json) => {
         setItem(json);

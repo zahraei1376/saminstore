@@ -37,10 +37,10 @@ const Home = ({ fetchCollectionsStartAsync, data, loading }) => {
   useEffect(() => {
     if (searchItem) {
       fetchCollectionsStartAsync(
-        `https://fakestoreapi.com/products/category/${searchItem}`
+        `/products/category/${searchItem}`
       );
     } else {
-      fetchCollectionsStartAsync("https://fakestoreapi.com/products");
+      fetchCollectionsStartAsync("/products");
     }
   }, [searchItem]);
 

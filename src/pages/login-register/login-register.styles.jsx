@@ -12,7 +12,7 @@ export const TitleContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 `;
 
 export const IconContainer = styled.div`
@@ -55,9 +55,9 @@ export const TitleLogin = styled.h1`
 `;
 
 export const SectionLogin = styled.div`
-  padding: 15rem 0;
+  padding: 5rem 0;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -190,6 +190,14 @@ export const FooterLoginText = styled.p`
   padding-top: 2rem;
   width: 80%;
   color: #fff;
+`;
+
+export const TitleDescription = styled.p`
+  color:#A20C0C;
+  // background-color:rgba(0,0,0,.6);
+  font-size: 2.5rem;
+  display:flex;
+  text-align:center;
 `;
 
 export const FooterLoginLink = styled.a`

@@ -19,6 +19,7 @@ import {
   MyPersonOutlineIcon,
   ErrorTag,
   TitleContainer,
+  TitleDescription,
 } from "./login-register.styles";
 import { useForm } from "react-hook-form";
 import LoginButton from "../../components/btn/btn.component";
@@ -50,7 +51,10 @@ const LoginPage = ({
   const onSubmit = async (data) => {
     setLoading((pre) => !pre);
     await axios
-      .post(`https://cors-anywhere.herokuapp.com/${url}`, data)
+      .post(url, type === 'login' ? {
+        username: "mor_2314",
+        password: "83r5^_"
+    }:data)
       .then((res) => {
         if (type === "login") {
           setCurrentUser(res.token ? res.token : null);
@@ -76,6 +80,7 @@ const LoginPage = ({
           {loading ? <MySpinner margin="true" /> : ""}
           <TitleLogin>{type === "register" ? "sign up" : "sign in"}</TitleLogin>
         </TitleContainer>
+        <TitleDescription>{type === "login" ? "There is a test project and fakeapi is used and logged in with a test user, please fill in only the username and password boxes" : "" }</TitleDescription>
         <LoginForm onSubmit={handleSubmit(onSubmit)}>
           <ContainerGroup>
             <FormGroup>
