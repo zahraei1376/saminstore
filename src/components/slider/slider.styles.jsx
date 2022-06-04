@@ -11,6 +11,9 @@ export const Container = styled.div`
   display: flex;
   justify-content: end;
   position: relative;
+  @media screen and (max-width: 37.5em) {
+    height: 50vh;
+  }
 `;
 
 export const HeadingContainer = styled.div`

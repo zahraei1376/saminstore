@@ -1,6 +1,6 @@
 import React from "react";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
-
+import './pagination.styles.css';
 const PaginationStore = ({ count, current, onPageClick }) => {
   return (
     <Pagination

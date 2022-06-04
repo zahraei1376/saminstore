@@ -22,9 +22,9 @@ export const CardIconPath = styled.path`
 `;
 
 export const CardIconItemCount = styled.span`
-  font-size: 0.8rem;
-  height: 1.75rem;
-  width: 1.75rem;
+  font-size: 1.5rem;
+  height:2.5rem;
+  width: 2.5rem;
   border-radius: 50%;
   background-color: #e67e22;
   color: #fff;
