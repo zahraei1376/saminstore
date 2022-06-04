@@ -22,8 +22,8 @@ const SideBarStore = ({ searchItem, setSearchItem }) => {
             }}
           >
             <i
-              className="fa fa-male"
-              style={{ fontSize: "2rem", marginRight: "1rem" }}
+              className="fa fa-adjust"
+              style={{ fontSize: "1.5rem", marginRight: "1rem" }}
             ></i>
             <Span>all</Span>
           </SideNavLink>
@@ -67,8 +67,8 @@ const SideBarStore = ({ searchItem, setSearchItem }) => {
             }}
           >
             <i
-              className="fa fa-radiation"
-              style={{ fontSize: "2rem", marginRight: "1rem" }}
+              className="fa fa-bullseye"
+              style={{ fontSize: "1.5rem", marginRight: "1rem" }}
             ></i>
             <Span>electronics</Span>
           </SideNavLink>

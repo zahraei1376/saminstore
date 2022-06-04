@@ -49,12 +49,9 @@ const LoginPage = ({
   //////////////////////////
   const onSubmit = async (data) => {
     setLoading((pre) => !pre);
-    console.log("data", data);
     await axios
       .post(`https://cors-anywhere.herokuapp.com/${url}`, data)
       .then((res) => {
-        console.log("res", res);
-        console.log(res);
         if (type === "login") {
           setCurrentUser(res.token ? res.token : null);
         } else {
@@ -67,7 +64,6 @@ const LoginPage = ({
         });
       })
       .catch((err) => {
-        console.log(err.message);
         setLoading((pre) => !pre);
         toggleSnackBarOpen({ message: err.message, type: "error" });
       });
