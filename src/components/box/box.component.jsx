@@ -24,7 +24,6 @@ const BoxStore = ({ item, addItem, showSnackBar, toggleSnackBarOpen, key }) => {
   let history = useHistory();
   return (
     <BoxContainer
-      key={key}
       onClick={() => history.push(`/showProduct/${item.id}`)}
     >
       <BoxImg src={item.image ? item.image : defImage} />

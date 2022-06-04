@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { limitRecipeTitle } from "../../functions/functions";
 import {
   ClearItemFromCart,
   RemoveItem,
@@ -24,7 +25,7 @@ const CheckOutItem = ({ cartItem, clearItem, addItem, RemoveItem }) => {
       <ImageContainer>
         <Image src={image} alt="item" />
       </ImageContainer>
-      <CheckOutItemName>{title}</CheckOutItemName>
+      <CheckOutItemName>{limitRecipeTitle(title)}</CheckOutItemName>
       <CheckOutItemQuantity>
         <CheckOutItemArrow onClick={() => RemoveItem(cartItem)}>
           &#10094;
