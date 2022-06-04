@@ -18,7 +18,7 @@ const SimpleSnackbar = ({
   useEffect(() => {
     setTimeout(() => {
       toggleSnackBarClose();
-    }, 4000);
+    }, 2000);
   }, []);
   return (
     <Container
@@ -26,7 +26,7 @@ const SimpleSnackbar = ({
       showSnackBar={showSnackBar ? "true" : null}
     >
       {messageSnackBar}
-      <Span onClick={() => toggleSnackBarClose()}>&#10005;</Span>
+      <Span onClick={(e) => {toggleSnackBarClose(); e.stopPropagation()}}>&#10005;</Span>
     </Container>
   );
 };
