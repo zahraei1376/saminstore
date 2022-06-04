@@ -6,7 +6,7 @@ export const CardIconStore = styled.div`
 `;
 
 export const CardIconSvg = styled.svg`
-  width: 3.25rem;
+  width: 3.8rem;
   height: 3.25rem;
   @media screen and (max-width: 37.5em) {
     transform: scale(1);
@@ -16,6 +16,9 @@ export const CardIconSvg = styled.svg`
 export const CardIconPath = styled.path`
   transform: scale(1.7);
   fill: #fff;
+  @media screen and (max-width: 37.5em) {
+    transform: scale(1);
+  }
 `;
 
 export const CardIconItemCount = styled.span`

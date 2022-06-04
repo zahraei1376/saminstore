@@ -26,7 +26,7 @@ const Slider = ({ currentUser, hidden }) => (
 );
 
 const mapStateToProps = createStructuredSelector({
-  currentUser:selectCurrentUser,
+  currentUser: selectCurrentUser,
   hidden: selectCartHidden,
 });
 
