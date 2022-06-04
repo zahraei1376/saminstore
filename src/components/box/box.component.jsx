@@ -20,7 +20,8 @@ import {
 import { selectShowSnack } from "../../redux/snackBar/snackBar.selector";
 import SimpleSnackbar from "../snackbar/snackbar.component";
 import { createStructuredSelector } from "reselect";
-const BoxStore = ({ item, addItem, showSnackBar, toggleSnackBarOpen, key }) => {
+import { selectCurrentUser } from "../../redux/user/user.selectors";
+const BoxStore = ({ item, addItem, showSnackBar, toggleSnackBarOpen, currentUser }) => {
   let history = useHistory();
   return (
     <BoxContainer
@@ -32,11 +33,16 @@ const BoxStore = ({ item, addItem, showSnackBar, toggleSnackBarOpen, key }) => {
       <BoxDecription>{limitRecipeTitle(item.description, 64)}</BoxDecription>
       <Button
         onClick={(e) => {
-          addItem(item);
-          toggleSnackBarOpen({
-            message: "add to card",
-            type: "seccess",
-          });
+          if(currentUser){
+            addItem(item);
+            toggleSnackBarOpen({
+              message: "add to card",
+              type: "seccess",
+            });
+          }else{
+            history.push('/login')
+          }
+         
           e.stopPropagation();
         }}
       >
@@ -49,6 +55,7 @@ const BoxStore = ({ item, addItem, showSnackBar, toggleSnackBarOpen, key }) => {
 
 const mapStateToProps = createStructuredSelector({
   showSnackBar: selectShowSnack,
+  currentUser: selectCurrentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -26,11 +26,16 @@ import { selectShowSnack } from "../../redux/snackBar/snackBar.selector";
 import SimpleSnackbar from "../../components/snackbar/snackbar.component";
 import { createStructuredSelector } from "reselect";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
+import {selectCurrentUser} from '../../redux/user/user.selectors';
 
-const ShowProduct = ({ addItem, showSnackBar, toggleSnackBarOpen }) => {
+const ShowProduct = ({ addItem, showSnackBar, toggleSnackBarOpen , currentUser }) => {
   let { id } = useParams();
   const [item, setItem] = useState("");
   const [loading, setLoading] = useState(true);
+
+  let history = useHistory();
+
   useEffect(() => {
     axios
       .get(`https://fakestoreapi.com/products/${id}`)
@@ -67,11 +72,15 @@ const ShowProduct = ({ addItem, showSnackBar, toggleSnackBarOpen }) => {
                   <ContainerButton>
                     <Button
                       onClick={() => {
-                        toggleSnackBarOpen({
-                          message: "add to card",
-                          type: "seccess",
-                        });
-                        addItem(item);
+                        if(currentUser){
+                          addItem(item);
+                          toggleSnackBarOpen({
+                            message: "add to card",
+                            type: "seccess",
+                          });
+                        }else{
+                          history.push('/login')
+                        }
                       }}
                     >
                       add to card
@@ -94,6 +103,7 @@ const ShowProduct = ({ addItem, showSnackBar, toggleSnackBarOpen }) => {
 
 const mapStateToProps = createStructuredSelector({
   showSnackBar: selectShowSnack,
+  currentUser: selectCurrentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -57,7 +57,7 @@ const LoginPage = ({
     }:data)
       .then((res) => {
         if (type === "login") {
-          setCurrentUser(res.token ? res.token : null);
+          setCurrentUser(res.data && res.data.token  ? res.data.token : null);
         } else {
           history.push("/login");
         }
@@ -66,6 +66,10 @@ const LoginPage = ({
           message: "The operation was successful",
           type: "seccess",
         });
+
+        setTimeout(()=>{
+          history.push("/");
+        },3000)
       })
       .catch((err) => {
         setLoading((pre) => !pre);
