@@ -94,7 +94,7 @@ const LoginPage = ({
                   required: "username is required",
                 })}
                 type="text"
-                placeholder="username"
+                placeholder="username mor_2314"
                 id="username"
               />
               <IconContainer>
@@ -111,7 +111,7 @@ const LoginPage = ({
                   required: "username is required",
                 })}
                 type="password"
-                placeholder="password"
+                placeholder="password 83r5^_"
                 id="password"
               />
               <IconContainer>
