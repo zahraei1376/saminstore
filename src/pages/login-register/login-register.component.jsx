@@ -94,7 +94,7 @@ const LoginPage = ({
                   required: "username is required",
                 })}
                 type="text"
-                placeholder="username mor_2314"
+                placeholder="username : mor_2314"
                 id="username"
               />
               <IconContainer>
@@ -108,10 +108,10 @@ const LoginPage = ({
               <FormInput
                 err={errors.password ? true : null}
                 {...register("password", {
-                  required: "username is required",
+                  required: "password is required",
                 })}
                 type="password"
-                placeholder="password 83r5^_"
+                placeholder="password : 83r5^_"
                 id="password"
               />
               <IconContainer>
