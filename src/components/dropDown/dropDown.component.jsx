@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
-import Select from 'react-select';
+import React from "react";
+import Select from "react-select";
+import { Container, Label } from "./dropDown.styles";
 
-const options = [
-  { value: 'Tehran', label: 'Tehran' },
-  { value: 'Markazi', label: 'Markazi' },
-  { value: 'Qazvin', label: 'Qazvin' },
-  { value: 'Mazandaran', label: 'Mazandaran' },
-];
+const styles = {
+  control: (base) => ({
+    ...base,
+    fontSize: "2rem",
+  }),
+  menu: (base) => ({
+    ...base,
+    fontSize: "2rem",
+  }),
+};
 
-const subOption = [
-  {id:"Tehran" , city:["Tehran" , "Ghods", "Shahriar" , "Islam City" , "Mallard"]},
-  {id:"Markazi" , city:["Arak" , "Saveh", "Khomein" , "Mahallat" , "Tafresh"]},
-  {id:"Qazvin" , city:["Qazvin" , "Iqbaliyeh", "Shawl" , "Sharifieh" , "Abeek"]},
-  {id:"Mazandaran" , city:["Babol" , "Sari", "Chalous" , "Amol" , "Neka"]}
-]
-
-const DropDown = ({selectedOption , setSelectedOption , options}) =>{
-  const [selectedOption, setSelectedOption] = useState(null);
-
+const DropDown = ({ selectedOption, setSelectedOption, options , title }) => {
   return (
-      <Select style={{fontSize:'3rem'}}
+    <Container>
+      <Label>{title}</Label>
+      <Select
+        styles={styles}
         defaultValue={selectedOption}
         onChange={setSelectedOption}
         options={options}
       />
+    </Container>
   );
 };
 export default DropDown;

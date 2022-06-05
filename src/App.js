@@ -17,25 +17,26 @@ const LoginRegisterPage = lazy(() =>
   import("./pages/login-register/login-register.component")
 );
 const CheckOutPage = lazy(() => import("./pages/checkout/checkout.component"));
+// const CompletePurchaseProcess = lazy(() =>
+//   import("./pages/completePurchaseProcess/completePurchaseProcess.component")
+// );
 ////////////////////////////////////////////////////////
-const Layout = ({currentUser}) => {
+const Layout = ({ currentUser }) => {
   return (
     <BrowserRouter>
       <Switch>
         <Suspense fallback={<MySpinner />}>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/showProduct/:id" component={ShowProduct} />
-          <Route exact path="/checkout" component={CheckOutPage} />
+          <Route exact path="/checkout">
+            {!currentUser ? <Redirect to="/login" /> : <CheckOutPage />}
+          </Route>
           <Route exact path="/register">
-          {/* <LoginRegisterPage
-              type="register"
-              url="https://fakestoreapi.com/users"
-            /> */}
-          {currentUser ? <Redirect to="/login" /> : <LoginRegisterPage
-              type="register"
-              url="/users"
-            />}
-            
+            {currentUser ? (
+              <Redirect to="/login" />
+            ) : (
+              <LoginRegisterPage type="register" url="/users" />
+            )}
           </Route>
           <Route exact path="/login">
             <LoginRegisterPage
@@ -44,6 +45,7 @@ const Layout = ({currentUser}) => {
             />
           </Route>
           {/* <Route component={NotFoundPage} /> */}
+          {/* <Route path="*" component={NotFoundPage} /> */}
         </Suspense>
       </Switch>
     </BrowserRouter>
