@@ -12,13 +12,14 @@ import {
   selectError,
   selectLoading,
 } from "../../redux/shop/shop.selector";
+import { clearCurrentUser } from "../../redux/user/user.action";
 import {
   ContainerProducts,
   ShopContainer,
   SidebarContainer,
 } from "./home.styles";
 
-const Home = ({ fetchCollectionsStartAsync, data, loading }) => {
+const Home = ({ fetchCollectionsStartAsync, data, loading , clearCurrentUser }) => {
   const [allProduct, setAllProduct] = useState([]);
   const [items, setItems] = useState([]);
   const [count, setCount] = useState(0);
@@ -35,12 +36,14 @@ const Home = ({ fetchCollectionsStartAsync, data, loading }) => {
   }, [data]);
 
   useEffect(() => {
+    // clearCurrentUser();
+    setCurrent(0);
     if (searchItem) {
       fetchCollectionsStartAsync(
-        `https://fakestoreapi.com/products/category/${searchItem}`
+        `/products/category/${searchItem}`
       );
     } else {
-      fetchCollectionsStartAsync("https://fakestoreapi.com/products");
+      fetchCollectionsStartAsync("/products");
     }
   }, [searchItem]);
 
@@ -86,6 +89,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   fetchCollectionsStartAsync: (url) =>
     dispatch(fetchCollectionsStartAsync(url)),
+    clearCurrentUser: () => dispatch(clearCurrentUser()),
   RemoveAll: () => dispatch(RemoveAll()),
 });
 

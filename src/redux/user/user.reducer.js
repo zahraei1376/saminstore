@@ -1,4 +1,4 @@
-import {UserActionTypes} from './user.types';
+import {UserActionTypes } from './user.types';
 
 const INITIAL_STATE={
     currentUser:null
@@ -11,6 +11,14 @@ const UserReducer=(state=INITIAL_STATE,action)=>{
                 ...state,
                 currentUser:action.payload
             }
+
+        case UserActionTypes.CLEAR_CURRENT_USER:
+            return{
+                ...state,
+                currentUser:null,
+            }
+
+            
         default:
             return state;
     }

@@ -10,7 +10,7 @@ import {
   ContainerSelect,
 } from "./completePurchaseProcess.styles";
 import SimpleSnackbar from "../../components/snackbar/snackbar.component";
-import CheckOutMap from "../../components/Map/Map.component";
+// import CheckOutMap from "../../components/Map/Map.component";
 const options = [
   { value: "Tehran", label: "Tehran" },
   { value: "Markazi", label: "Markazi" },
@@ -87,7 +87,7 @@ const CompletePurchaseProcess = ({ showSnackBar, toggleSnackBarOpen }) => {
           options={subOptionState}
         />
       </ContainerSelect>
-      <CheckOutMap/>
+      {/* <CheckOutMap/> */}
 
       <Button onClick={() => toggleSnackBarOpen({ message: "It was successful", type: "" })}>
         Order

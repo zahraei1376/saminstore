@@ -41,7 +41,7 @@ const Layout = ({ currentUser }) => {
           <Route exact path="/login">
             <LoginRegisterPage
               type="login"
-              url="https://fakestoreapi.com/auth/login"
+              url="/auth/login"
             />
           </Route>
           {/* <Route component={NotFoundPage} /> */}
