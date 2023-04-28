@@ -2,7 +2,7 @@ import snackBarActionTypes from "./snackBar.types";
 
 export const toggleSnackBarOpen = (message) => ({
   type: snackBarActionTypes.TOGGLE_SNACKBAR_OPEN,
-  payload:message
+  payload: message
 });
 
 export const toggleSnackBarClose = () => ({
@@ -13,6 +13,6 @@ export const toggleSnackBarClose = () => ({
 
 export const setMessageSnackBar = (message) => ({
   type: snackBarActionTypes.SET_MESSAGE_SNACKBAR,
-  payload:message
+  payload: message
 });
 

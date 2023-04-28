@@ -19,7 +19,7 @@ import {
   SidebarContainer,
 } from "./home.styles";
 
-const Home = ({ fetchCollectionsStartAsync, data, loading , clearCurrentUser }) => {
+const Home = ({ fetchCollectionsStartAsync, data, loading, clearCurrentUser }) => {
   const [allProduct, setAllProduct] = useState([]);
   const [items, setItems] = useState([]);
   const [count, setCount] = useState(0);
@@ -89,7 +89,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   fetchCollectionsStartAsync: (url) =>
     dispatch(fetchCollectionsStartAsync(url)),
-    clearCurrentUser: () => dispatch(clearCurrentUser()),
+  clearCurrentUser: () => dispatch(clearCurrentUser()),
   RemoveAll: () => dispatch(RemoveAll()),
 });
 
