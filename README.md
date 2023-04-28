@@ -8,4 +8,4 @@
  - saving information in Redux
  - product list pagination
  - using material-ui
- - ...
+ - est
